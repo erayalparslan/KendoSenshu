@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GroupStageVC.numberOfMatchedItems(inSectionIndex:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "matchedPlayersInSection(atIndex: index).count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.saveGroupStageInDatabase(callback:):GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in GroupStageVC.saveButtonPressed(_:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.matchesArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GroupStageVC.getTournamentStartInfo():GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.matchedPlayersInSection(atIndex:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "playersInSection(atIndex: 0)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.matchedPlayersInSection2(atIndex:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "playersInSection(atIndex: index)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.saveButtonPressed(_:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row]">
+            </PersistentString>
+            <PersistentString
+               value = "aCurrentScore">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.tableView(_:cellForRowAt:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.matchedPlayersInSection(atIndex: indexPath.section)[indexPath.row]">
+            </PersistentString>
+            <PersistentString
+               value = "matchesInSection(atIndex: indexPath.section)[indexPath.row]">
+            </PersistentString>
+            <PersistentString
+               value = "matchesInSection(atIndex: 0)[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GroupStageVC.getGroupMatchesFromDatabase():GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.saveGroupMatchesInDatabase():GroupStageVC.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

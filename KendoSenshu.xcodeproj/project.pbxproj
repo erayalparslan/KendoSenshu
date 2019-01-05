@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0028A2D221D7D22300AB238B /* MatchDialogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0028A2D121D7D22300AB238B /* MatchDialogVC.swift */; };
+		1608BAFD21B114830026D1EB /* UITableView+TableFlip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1608BAFC21B114830026D1EB /* UITableView+TableFlip.swift */; };
+		160E2A45218A3CD6009790CA /* ScoreTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E2A44218A3CD6009790CA /* ScoreTableCell.swift */; };
+		160E2A47218A3D1C009790CA /* MatchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E2A46218A3D1C009790CA /* MatchTableCell.swift */; };
+		160E2A4B218B8723009790CA /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E2A4A218B8723009790CA /* Score.swift */; };
+		1612A261219010FB00250E64 /* StartTournamentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612A260219010FB00250E64 /* StartTournamentVC.swift */; };
+		1612A2632190669900250E64 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612A2622190669900250E64 /* Player.swift */; };
+		1618775B21836C4000D5A1D4 /* NotificationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618775A21836C4000D5A1D4 /* NotificationTableCell.swift */; };
+		1618775D21836C5D00D5A1D4 /* SignInTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618775C21836C5D00D5A1D4 /* SignInTableCell.swift */; };
+		1618775F2183716600D5A1D4 /* InfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618775E2183716600D5A1D4 /* InfoTableCell.swift */; };
+		1618A498217F3C7D00A30DB9 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1618A497217F3C7D00A30DB9 /* SettingsVC.swift */; };
+		163C086A2188899700EF4F1E /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C08692188899700EF4F1E /* Match.swift */; };
+		16434206218ECACE00F8583D /* NewTournamentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16434205218ECACE00F8583D /* NewTournamentVC.swift */; };
+		16434208218F28A700F8583D /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16434207218F28A700F8583D /* Tournament.swift */; };
+		164A046B2175227C001E1F95 /* yell1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 164A046A2175227C001E1F95 /* yell1.mp3 */; };
+		164A613721BBCBD000D6D792 /* GroupStageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A613621BBCBD000D6D792 /* GroupStageVC.swift */; };
+		164A613921BBF6D100D6D792 /* DojoPlayerSimpleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A613821BBF6D100D6D792 /* DojoPlayerSimpleTableCell.swift */; };
+		164D401821A6F8B30068318B /* SwiftyMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164D401721A6F8B30068318B /* SwiftyMD5.swift */; };
+		16661B9421806C6D00A57F3C /* tournamentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16661B9321806C6D00A57F3C /* tournamentTableCell.swift */; };
+		1687D60121CC50A600493BF9 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687D60021CC50A600493BF9 /* Stats.swift */; };
+		1687D60421D22A2600493BF9 /* DoneButtonKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1687D60321D22A2600493BF9 /* DoneButtonKeyboard.swift */; };
+		168C56562176297400A8FB52 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 168C56532176297300A8FB52 /* ProgressHUD.m */; };
+		168C56572176297400A8FB52 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 168C56552176297300A8FB52 /* ProgressHUD.bundle */; };
+		16A0CB7F2185F40C000B9F49 /* AnnouncementsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0CB7E2185F40C000B9F49 /* AnnouncementsVC.swift */; };
+		16A0CB832185FAAD000B9F49 /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0CB822185FAAD000B9F49 /* NewsTableCell.swift */; };
+		16A0CB8521870A16000B9F49 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0CB8421870A16000B9F49 /* Announcement.swift */; };
+		16A0CB8721873852000B9F49 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0CB8621873852000B9F49 /* SWXMLHash.swift */; };
+		16A0CB8921873BAB000B9F49 /* AnnouncementsDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A0CB8821873BAB000B9F49 /* AnnouncementsDetailsVC.swift */; };
+		16BBECC3217F98F200E91DE3 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BBECC2217F98F200E91DE3 /* Global.swift */; };
+		16BBECC5217F9A5800E91DE3 /* TournamentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BBECC4217F9A5800E91DE3 /* TournamentsVC.swift */; };
+		16C1D7B821A2854E00AFE1BB /* DojoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7B721A2854E00AFE1BB /* DojoTableCell.swift */; };
+		16C1D7BA21A28BC000AFE1BB /* DojosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7B921A28BC000AFE1BB /* DojosVC.swift */; };
+		16C1D7BC21A28E2000AFE1BB /* Dojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7BB21A28E2000AFE1BB /* Dojo.swift */; };
+		16C1D7BE21A297A900AFE1BB /* DojoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7BD21A297A900AFE1BB /* DojoVC.swift */; };
+		16C1D7C221A2F7D400AFE1BB /* DojoPlayerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7C121A2F7D400AFE1BB /* DojoPlayerTableCell.swift */; };
+		16C1D7C421A4425A00AFE1BB /* NewEditDojoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7C321A4425A00AFE1BB /* NewEditDojoVC.swift */; };
+		16C1D7C621A4777000AFE1BB /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1D7C521A4777000AFE1BB /* Cities.swift */; };
+		16C1D7C821A498C400AFE1BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16C1D7C721A498C400AFE1BB /* GoogleService-Info.plist */; };
+		16D351A221C681C7009AC536 /* GroupStageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D351A121C681C7009AC536 /* GroupStageModel.swift */; };
+		16D351A421C6931C009AC536 /* CustomPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D351A321C6931C009AC536 /* CustomPlayer.swift */; };
+		16D351A621C813C8009AC536 /* VersusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D351A521C813C8009AC536 /* VersusTableViewCell.swift */; };
+		16E6275B2194CDB400A525D1 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E6275A2194CDB400A525D1 /* ProfileVC.swift */; };
+		16ECFB10217143CD0041A6F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECFB0F217143CD0041A6F3 /* AppDelegate.swift */; };
+		16ECFB12217143CD0041A6F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECFB11217143CD0041A6F3 /* ViewController.swift */; };
+		16ECFB15217143CD0041A6F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ECFB13217143CD0041A6F3 /* Main.storyboard */; };
+		16ECFB17217143CF0041A6F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16ECFB16217143CF0041A6F3 /* Assets.xcassets */; };
+		16ECFB1A217143CF0041A6F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16ECFB18217143CF0041A6F3 /* LaunchScreen.storyboard */; };
+		16ECFB22217353800041A6F3 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ECFB21217353800041A6F3 /* RegisterVC.swift */; };
+		4087BCAED86C55BFC6AC5083 /* Pods_KendoSenshu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE421B1203A5AD6CD5C4F0C /* Pods_KendoSenshu.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0028A2D121D7D22300AB238B /* MatchDialogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDialogVC.swift; sourceTree = "<group>"; };
+		1608BAFC21B114830026D1EB /* UITableView+TableFlip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+TableFlip.swift"; sourceTree = "<group>"; };
+		160E2A44218A3CD6009790CA /* ScoreTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableCell.swift; sourceTree = "<group>"; };
+		160E2A46218A3D1C009790CA /* MatchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTableCell.swift; sourceTree = "<group>"; };
+		160E2A4A218B8723009790CA /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		1612A260219010FB00250E64 /* StartTournamentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartTournamentVC.swift; sourceTree = "<group>"; };
+		1612A2622190669900250E64 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		1618775A21836C4000D5A1D4 /* NotificationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableCell.swift; sourceTree = "<group>"; };
+		1618775C21836C5D00D5A1D4 /* SignInTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInTableCell.swift; sourceTree = "<group>"; };
+		1618775E2183716600D5A1D4 /* InfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableCell.swift; sourceTree = "<group>"; };
+		1618A497217F3C7D00A30DB9 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		163C08692188899700EF4F1E /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		16434205218ECACE00F8583D /* NewTournamentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTournamentVC.swift; sourceTree = "<group>"; };
+		16434207218F28A700F8583D /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
+		164A046A2175227C001E1F95 /* yell1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yell1.mp3; sourceTree = "<group>"; };
+		164A613621BBCBD000D6D792 /* GroupStageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStageVC.swift; sourceTree = "<group>"; };
+		164A613821BBF6D100D6D792 /* DojoPlayerSimpleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoPlayerSimpleTableCell.swift; sourceTree = "<group>"; };
+		164D401721A6F8B30068318B /* SwiftyMD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyMD5.swift; sourceTree = "<group>"; };
+		16661B9321806C6D00A57F3C /* tournamentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tournamentTableCell.swift; sourceTree = "<group>"; };
+		1687D60021CC50A600493BF9 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		1687D60321D22A2600493BF9 /* DoneButtonKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButtonKeyboard.swift; sourceTree = "<group>"; };
+		168C56522176297200A8FB52 /* KendoSenshu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KendoSenshu-Bridging-Header.h"; sourceTree = "<group>"; };
+		168C56532176297300A8FB52 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		168C56542176297300A8FB52 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		168C56552176297300A8FB52 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		16A0CB7E2185F40C000B9F49 /* AnnouncementsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsVC.swift; sourceTree = "<group>"; };
+		16A0CB822185FAAD000B9F49 /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
+		16A0CB8421870A16000B9F49 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		16A0CB8621873852000B9F49 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		16A0CB8821873BAB000B9F49 /* AnnouncementsDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsDetailsVC.swift; sourceTree = "<group>"; };
+		16BBECC2217F98F200E91DE3 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		16BBECC4217F9A5800E91DE3 /* TournamentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentsVC.swift; sourceTree = "<group>"; };
+		16C1D7B721A2854E00AFE1BB /* DojoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoTableCell.swift; sourceTree = "<group>"; };
+		16C1D7B921A28BC000AFE1BB /* DojosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojosVC.swift; sourceTree = "<group>"; };
+		16C1D7BB21A28E2000AFE1BB /* Dojo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dojo.swift; sourceTree = "<group>"; };
+		16C1D7BD21A297A900AFE1BB /* DojoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoVC.swift; sourceTree = "<group>"; };
+		16C1D7C121A2F7D400AFE1BB /* DojoPlayerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoPlayerTableCell.swift; sourceTree = "<group>"; };
+		16C1D7C321A4425A00AFE1BB /* NewEditDojoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEditDojoVC.swift; sourceTree = "<group>"; };
+		16C1D7C521A4777000AFE1BB /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		16C1D7C721A498C400AFE1BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		16D351A121C681C7009AC536 /* GroupStageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupStageModel.swift; sourceTree = "<group>"; };
+		16D351A321C6931C009AC536 /* CustomPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayer.swift; sourceTree = "<group>"; };
+		16D351A521C813C8009AC536 /* VersusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusTableViewCell.swift; sourceTree = "<group>"; };
+		16E6275A2194CDB400A525D1 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		16ECFB0C217143CD0041A6F3 /* KendoSenshu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KendoSenshu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		16ECFB0F217143CD0041A6F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		16ECFB11217143CD0041A6F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		16ECFB14217143CD0041A6F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16ECFB16217143CF0041A6F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16ECFB19217143CF0041A6F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		16ECFB1B217143CF0041A6F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16ECFB21217353800041A6F3 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		45A8B29E33D39501567FEB5B /* Pods-KendoSenshu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KendoSenshu.release.xcconfig"; path = "Pods/Target Support Files/Pods-KendoSenshu/Pods-KendoSenshu.release.xcconfig"; sourceTree = "<group>"; };
+		8FE421B1203A5AD6CD5C4F0C /* Pods_KendoSenshu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KendoSenshu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D60D4D71496D3671EAC5D9D2 /* Pods-KendoSenshu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KendoSenshu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KendoSenshu/Pods-KendoSenshu.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16ECFB09217143CD0041A6F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4087BCAED86C55BFC6AC5083 /* Pods_KendoSenshu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		163135272185E6F10087CD60 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				1687D60221CEC45C00493BF9 /* CustomTableCells */,
+				16BBECC2217F98F200E91DE3 /* Global.swift */,
+				1687D60021CC50A600493BF9 /* Stats.swift */,
+				16D351A321C6931C009AC536 /* CustomPlayer.swift */,
+				1612A2622190669900250E64 /* Player.swift */,
+				16D351A121C681C7009AC536 /* GroupStageModel.swift */,
+				16C1D7BB21A28E2000AFE1BB /* Dojo.swift */,
+				16A0CB8421870A16000B9F49 /* Announcement.swift */,
+				16434207218F28A700F8583D /* Tournament.swift */,
+				16C1D7C521A4777000AFE1BB /* Cities.swift */,
+				160E2A4A218B8723009790CA /* Score.swift */,
+				163C08692188899700EF4F1E /* Match.swift */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		163135282185E6F70087CD60 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16ECFB13217143CD0041A6F3 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		163135292185E6FD0087CD60 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16ECFB11217143CD0041A6F3 /* ViewController.swift */,
+				0028A2D121D7D22300AB238B /* MatchDialogVC.swift */,
+				1612A260219010FB00250E64 /* StartTournamentVC.swift */,
+				164A613621BBCBD000D6D792 /* GroupStageVC.swift */,
+				16C1D7C321A4425A00AFE1BB /* NewEditDojoVC.swift */,
+				16C1D7B921A28BC000AFE1BB /* DojosVC.swift */,
+				16C1D7BD21A297A900AFE1BB /* DojoVC.swift */,
+				16A0CB8821873BAB000B9F49 /* AnnouncementsDetailsVC.swift */,
+				16E6275A2194CDB400A525D1 /* ProfileVC.swift */,
+				16434205218ECACE00F8583D /* NewTournamentVC.swift */,
+				16ECFB21217353800041A6F3 /* RegisterVC.swift */,
+				1618A497217F3C7D00A30DB9 /* SettingsVC.swift */,
+				16A0CB7E2185F40C000B9F49 /* AnnouncementsVC.swift */,
+				16BBECC4217F9A5800E91DE3 /* TournamentsVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		164A04692175226B001E1F95 /* Sound Files */ = {
+			isa = PBXGroup;
+			children = (
+				164A046A2175227C001E1F95 /* yell1.mp3 */,
+			);
+			name = "Sound Files";
+			sourceTree = "<group>";
+		};
+		1687D60221CEC45C00493BF9 /* CustomTableCells */ = {
+			isa = PBXGroup;
+			children = (
+				164A613821BBF6D100D6D792 /* DojoPlayerSimpleTableCell.swift */,
+				16A0CB822185FAAD000B9F49 /* NewsTableCell.swift */,
+				1618775A21836C4000D5A1D4 /* NotificationTableCell.swift */,
+				160E2A44218A3CD6009790CA /* ScoreTableCell.swift */,
+				16C1D7C121A2F7D400AFE1BB /* DojoPlayerTableCell.swift */,
+				1618775E2183716600D5A1D4 /* InfoTableCell.swift */,
+				160E2A46218A3D1C009790CA /* MatchTableCell.swift */,
+				16C1D7B721A2854E00AFE1BB /* DojoTableCell.swift */,
+				1618775C21836C5D00D5A1D4 /* SignInTableCell.swift */,
+				16661B9321806C6D00A57F3C /* tournamentTableCell.swift */,
+				16D351A521C813C8009AC536 /* VersusTableViewCell.swift */,
+			);
+			path = CustomTableCells;
+			sourceTree = "<group>";
+		};
+		168C56512176292500A8FB52 /* third party */ = {
+			isa = PBXGroup;
+			children = (
+				1608BAFC21B114830026D1EB /* UITableView+TableFlip.swift */,
+				164D401721A6F8B30068318B /* SwiftyMD5.swift */,
+				16A0CB8621873852000B9F49 /* SWXMLHash.swift */,
+				168C56552176297300A8FB52 /* ProgressHUD.bundle */,
+				168C56542176297300A8FB52 /* ProgressHUD.h */,
+				168C56532176297300A8FB52 /* ProgressHUD.m */,
+				168C56522176297200A8FB52 /* KendoSenshu-Bridging-Header.h */,
+				1687D60321D22A2600493BF9 /* DoneButtonKeyboard.swift */,
+			);
+			name = "third party";
+			sourceTree = "<group>";
+		};
+		16ECFB03217143CD0041A6F3 = {
+			isa = PBXGroup;
+			children = (
+				16ECFB0E217143CD0041A6F3 /* KendoSenshu */,
+				16ECFB0D217143CD0041A6F3 /* Products */,
+				43950192E957CCF5E03C31E0 /* Pods */,
+				4BFAFCF9BDCEC7B0A14C0DBF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		16ECFB0D217143CD0041A6F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16ECFB0C217143CD0041A6F3 /* KendoSenshu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16ECFB0E217143CD0041A6F3 /* KendoSenshu */ = {
+			isa = PBXGroup;
+			children = (
+				16ECFB0F217143CD0041A6F3 /* AppDelegate.swift */,
+				163135272185E6F10087CD60 /* Modal */,
+				163135282185E6F70087CD60 /* View */,
+				163135292185E6FD0087CD60 /* Controller */,
+				168C56512176292500A8FB52 /* third party */,
+				164A04692175226B001E1F95 /* Sound Files */,
+				16ECFB16217143CF0041A6F3 /* Assets.xcassets */,
+				16ECFB18217143CF0041A6F3 /* LaunchScreen.storyboard */,
+				16ECFB1B217143CF0041A6F3 /* Info.plist */,
+				16C1D7C721A498C400AFE1BB /* GoogleService-Info.plist */,
+			);
+			path = KendoSenshu;
+			sourceTree = "<group>";
+		};
+		43950192E957CCF5E03C31E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D60D4D71496D3671EAC5D9D2 /* Pods-KendoSenshu.debug.xcconfig */,
+				45A8B29E33D39501567FEB5B /* Pods-KendoSenshu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4BFAFCF9BDCEC7B0A14C0DBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FE421B1203A5AD6CD5C4F0C /* Pods_KendoSenshu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16ECFB0B217143CD0041A6F3 /* KendoSenshu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16ECFB1E217143CF0041A6F3 /* Build configuration list for PBXNativeTarget "KendoSenshu" */;
+			buildPhases = (
+				B545C07D62021B4E5C4121A0 /* [CP] Check Pods Manifest.lock */,
+				16ECFB08217143CD0041A6F3 /* Sources */,
+				16ECFB09217143CD0041A6F3 /* Frameworks */,
+				16ECFB0A217143CD0041A6F3 /* Resources */,
+				B83B4EF368CCB3A262F7B632 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KendoSenshu;
+			productName = KendoSenshu;
+			productReference = 16ECFB0C217143CD0041A6F3 /* KendoSenshu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16ECFB04217143CD0041A6F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Eray Alparslan";
+				TargetAttributes = {
+					16ECFB0B217143CD0041A6F3 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+					};
+				};
+			};
+			buildConfigurationList = 16ECFB07217143CD0041A6F3 /* Build configuration list for PBXProject "KendoSenshu" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16ECFB03217143CD0041A6F3;
+			productRefGroup = 16ECFB0D217143CD0041A6F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16ECFB0B217143CD0041A6F3 /* KendoSenshu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16ECFB0A217143CD0041A6F3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16ECFB1A217143CF0041A6F3 /* LaunchScreen.storyboard in Resources */,
+				16ECFB17217143CF0041A6F3 /* Assets.xcassets in Resources */,
+				164A046B2175227C001E1F95 /* yell1.mp3 in Resources */,
+				168C56572176297400A8FB52 /* ProgressHUD.bundle in Resources */,
+				16ECFB15217143CD0041A6F3 /* Main.storyboard in Resources */,
+				16C1D7C821A498C400AFE1BB /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B545C07D62021B4E5C4121A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KendoSenshu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B83B4EF368CCB3A262F7B632 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KendoSenshu/Pods-KendoSenshu-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KendoSenshu/Pods-KendoSenshu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16ECFB08217143CD0041A6F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1687D60121CC50A600493BF9 /* Stats.swift in Sources */,
+				1618775D21836C5D00D5A1D4 /* SignInTableCell.swift in Sources */,
+				0028A2D221D7D22300AB238B /* MatchDialogVC.swift in Sources */,
+				164A613721BBCBD000D6D792 /* GroupStageVC.swift in Sources */,
+				16D351A221C681C7009AC536 /* GroupStageModel.swift in Sources */,
+				16BBECC5217F9A5800E91DE3 /* TournamentsVC.swift in Sources */,
+				164D401821A6F8B30068318B /* SwiftyMD5.swift in Sources */,
+				16A0CB832185FAAD000B9F49 /* NewsTableCell.swift in Sources */,
+				16661B9421806C6D00A57F3C /* tournamentTableCell.swift in Sources */,
+				1618775F2183716600D5A1D4 /* InfoTableCell.swift in Sources */,
+				16C1D7C421A4425A00AFE1BB /* NewEditDojoVC.swift in Sources */,
+				1618775B21836C4000D5A1D4 /* NotificationTableCell.swift in Sources */,
+				16C1D7BC21A28E2000AFE1BB /* Dojo.swift in Sources */,
+				160E2A45218A3CD6009790CA /* ScoreTableCell.swift in Sources */,
+				16C1D7C221A2F7D400AFE1BB /* DojoPlayerTableCell.swift in Sources */,
+				16ECFB22217353800041A6F3 /* RegisterVC.swift in Sources */,
+				16C1D7C621A4777000AFE1BB /* Cities.swift in Sources */,
+				163C086A2188899700EF4F1E /* Match.swift in Sources */,
+				16ECFB12217143CD0041A6F3 /* ViewController.swift in Sources */,
+				1687D60421D22A2600493BF9 /* DoneButtonKeyboard.swift in Sources */,
+				16BBECC3217F98F200E91DE3 /* Global.swift in Sources */,
+				1608BAFD21B114830026D1EB /* UITableView+TableFlip.swift in Sources */,
+				16C1D7BE21A297A900AFE1BB /* DojoVC.swift in Sources */,
+				160E2A4B218B8723009790CA /* Score.swift in Sources */,
+				168C56562176297400A8FB52 /* ProgressHUD.m in Sources */,
+				16C1D7B821A2854E00AFE1BB /* DojoTableCell.swift in Sources */,
+				16D351A621C813C8009AC536 /* VersusTableViewCell.swift in Sources */,
+				1612A261219010FB00250E64 /* StartTournamentVC.swift in Sources */,
+				16434208218F28A700F8583D /* Tournament.swift in Sources */,
+				16E6275B2194CDB400A525D1 /* ProfileVC.swift in Sources */,
+				16A0CB7F2185F40C000B9F49 /* AnnouncementsVC.swift in Sources */,
+				16ECFB10217143CD0041A6F3 /* AppDelegate.swift in Sources */,
+				16C1D7BA21A28BC000AFE1BB /* DojosVC.swift in Sources */,
+				16434206218ECACE00F8583D /* NewTournamentVC.swift in Sources */,
+				16A0CB8921873BAB000B9F49 /* AnnouncementsDetailsVC.swift in Sources */,
+				160E2A47218A3D1C009790CA /* MatchTableCell.swift in Sources */,
+				16A0CB8721873852000B9F49 /* SWXMLHash.swift in Sources */,
+				1618A498217F3C7D00A30DB9 /* SettingsVC.swift in Sources */,
+				164A613921BBF6D100D6D792 /* DojoPlayerSimpleTableCell.swift in Sources */,
+				16D351A421C6931C009AC536 /* CustomPlayer.swift in Sources */,
+				1612A2632190669900250E64 /* Player.swift in Sources */,
+				16A0CB8521870A16000B9F49 /* Announcement.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		16ECFB13217143CD0041A6F3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16ECFB14217143CD0041A6F3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		16ECFB18217143CF0041A6F3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16ECFB19217143CF0041A6F3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16ECFB1C217143CF0041A6F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		16ECFB1D217143CF0041A6F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16ECFB1F217143CF0041A6F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D60D4D71496D3671EAC5D9D2 /* Pods-KendoSenshu.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XN294VVZ35;
+				INFOPLIST_FILE = KendoSenshu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bilkentctis.KendoSenshu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "KendoSenshu/KendoSenshu-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		16ECFB20217143CF0041A6F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45A8B29E33D39501567FEB5B /* Pods-KendoSenshu.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XN294VVZ35;
+				INFOPLIST_FILE = KendoSenshu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bilkentctis.KendoSenshu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "KendoSenshu/KendoSenshu-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16ECFB07217143CD0041A6F3 /* Build configuration list for PBXProject "KendoSenshu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16ECFB1C217143CF0041A6F3 /* Debug */,
+				16ECFB1D217143CF0041A6F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16ECFB1E217143CF0041A6F3 /* Build configuration list for PBXNativeTarget "KendoSenshu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16ECFB1F217143CF0041A6F3 /* Debug */,
+				16ECFB20217143CF0041A6F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16ECFB04217143CD0041A6F3 /* Project object */;
+}

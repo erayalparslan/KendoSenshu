@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "closure #1 in closure #1 in StartTournamentVC.joinAlert():StartTournamentVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Global.selectedPlayer.email">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.numberOfItems(inSectionIndex:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "playersInSection(atIndex: index).count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TournamentsVC.tableView(_:didSelectRowAt:):TournamentsVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tournaments">
+            </PersistentString>
+            <PersistentString
+               value = "Global.selectedTournament">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.playersInSectionWithMatches(atIndex:):GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MatchesVC.prepare(for:sender:):MatchesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "mTableView.indexPathForSelectedRow">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.numberOfSections(in:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.numberOfSections">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.getTournamentStartInfo():GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DataSource.populateData():DataSource.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in NewTournamentVC.createAlert():NewTournamentVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.tableView(_:cellForRowAt:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.matchedPlayersInSection(atIndex:1)[1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.numberOfSections():GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TournamentsVC.getNewTournament(item:):TournamentsVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tournaments">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in StartTournamentVC.joinAlert():StartTournamentVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "emails">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GroupStageVC.getFullDetailsFromDatabase():GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.getSectionLabel(inSectionIndex:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.groupNames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TournamentsVC.prepare(for:sender:):TournamentsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GroupStageVC.getGroupStageFromDatabase():GroupStageVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TournamentsVC.loadTournaments():TournamentsVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tournaments">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in GroupStageVC.getTournamentStartInfo():GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "headersWithGroups">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in StartTournamentVC.register():StartTournamentVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Global.getMainUser().0">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GroupStageVC.tableView(_:viewForHeaderInSection:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.groupNames">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
