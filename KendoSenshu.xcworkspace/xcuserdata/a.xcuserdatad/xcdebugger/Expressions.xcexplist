@@ -33,6 +33,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in GroupStageVC.getGroupMatchesFromDatabase(callback:):GroupStageVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.matchesArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "GroupStageVC.matchedPlayersInSection2(atIndex:):GroupStageVC.swift">
          <PersistentStrings>
             <PersistentString

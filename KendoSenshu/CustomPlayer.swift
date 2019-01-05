@@ -13,11 +13,13 @@ class CustomPlayer {
     var name  = String()
     var group = String()
     var point = Int()
+    var avg   = Int()
     
     init() {
         self.email = ""
         self.name  = ""
         self.group = ""
         self.point = 0
+        self.avg   = 0
     }
 }

@@ -105,33 +105,51 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
         }
     }
     
-    func updateTotalScoreInDatabase() {
+    func updateScoreA(callback: @escaping (Bool)->Void) {
         let aEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].aEmail
-        let bEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].bEmail
-        
-        
-        getCurrentScoreOfPlayer(playerMail: aEmail) { (preScore) in
+        getCurrentScoreOfPlayer(playerMail: aEmail) { (preScore, preAverage) in
             let finalScore = self.aScoreInt + preScore
-            self.updateScore(playerMail: aEmail, finalScore: finalScore, callback: { (result) in
+            let finalAverage    = self.getAverage(winPoint: self.aScoreInt, losePoint: self.bScoreInt) + preAverage
+            self.updateScore(playerMail: aEmail, finalScore: finalScore, finalAverage: finalAverage, callback: { (result) in
                 if result == true {
                     print("scoreA is updated successfully")
+                    callback(true)
                 }
                 else {
                     print("scoreA could not be updated")
+                    callback(false)
                 }
             })
         }
-        
-        getCurrentScoreOfPlayer(playerMail: bEmail) { (preScore) in
-            let finalScore = self.bScoreInt + preScore
-            self.updateScore(playerMail: bEmail, finalScore: finalScore, callback: { (result) in
+    }
+    
+    func updateScoreB(callback: @escaping (Bool)->Void) {
+        let bEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].bEmail
+        getCurrentScoreOfPlayer(playerMail: bEmail) { (preScore, preAverage) in
+            let finalScore      = self.bScoreInt + preScore
+            let finalAverage    = self.getAverage(winPoint: self.bScoreInt, losePoint: self.aScoreInt) + preAverage
+            self.updateScore(playerMail: bEmail, finalScore: finalScore, finalAverage: finalAverage, callback: { (result) in
                 if result == true {
                     print("scoreB is updated successfully")
+                    callback(true)
                 }
                 else {
                     print("scoreB could not be updated")
+                    callback(false)
                 }
             })
+        }
+    }
+    
+    func updateTotalScoreInDatabase(callback: @escaping (Bool)->Void) {
+        updateScoreA { (success) in
+            if success {
+                self.updateScoreB(callback: { (success) in
+                    if success {
+                        callback(true)
+                    }
+                })
+            }
         }
     }
     
@@ -154,7 +172,17 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
                 }
             }
             
-            updateTotalScoreInDatabase()
+            updateTotalScoreInDatabase { (success) in
+                if success {
+                    self.getGroupStageFromDatabase { (result) in
+                        if result {
+                            print("group stage is taken from the db")
+                        }
+                    }
+                }
+            }
+            
+            
             
             self.getGroupMatchesFromDatabase(callback: { (result) in
                 if result == true {
@@ -167,21 +195,6 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
                     print("group matches could not be fetched from the db")
                 }
             })
-            
-//            getGroupStageFromDatabase { (result) in
-//                if result {
-//                    print("group stage is taken from the db")
-//                }
-//            }
-//
-//            getGroupMatchesFromDatabase { (result) in
-//                if result {
-//                    print("group matches are taken from the db")
-//                    self.mTableView.reloadData()
-//                    ProgressHUD.showSuccess("Saved")
-//                    self.hideDialog()
-//                }
-//            }
         }
     }
     
@@ -234,6 +247,8 @@ extension GroupStageVC {
         let mDetails = ["isFinished" : "yes",
                         "scoreA"     : aScoreInt,
                         "scoreB"     : bScoreInt,
+                        "averageA"   : getAverage(winPoint: aScoreInt, losePoint: bScoreInt),
+                        "averageB"   : getAverage(winPoint: bScoreInt, losePoint: aScoreInt),
                         "duration"   : self.durationTextField.text ?? "no_duration"
             ] as [String : Any]
         
@@ -247,19 +262,23 @@ extension GroupStageVC {
         }
     }
     
-    func getCurrentScoreOfPlayer(playerMail mail : String, callback: @escaping (_ aCurrentScore: Int)->Void) {
-        var aCurrentScore = 0
+    func getCurrentScoreOfPlayer(playerMail mail : String, callback: @escaping (_ aCurrentScore: Int, _ currentAverage: Int)->Void) {
+        var currentScore    = 0
+        var currentAverage  = 0
         self.ref.child("tournaments").child("\(Global.selectedTournament.id)").child("group_stage").child(mail).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if let details = snapshot.value as? NSDictionary {
-                aCurrentScore = details["score"] as? Int ?? 0
+                currentScore    = details["score"] as? Int ?? 0
+                currentAverage  = details["avg"]   as? Int ?? 0
             }
-            callback(aCurrentScore)
+            callback(currentScore, currentAverage)
         })
     }
     
     
-    func updateScore(playerMail mail : String, finalScore score: Int, callback: @escaping (_ result: Bool)->Void) {
-        self.ref.child("tournaments").child(Global.selectedTournament.id).child("group_stage").child(mail).updateChildValues(["score" : score], withCompletionBlock: {error, ref in
+    func updateScore(playerMail mail : String, finalScore score: Int, finalAverage average: Int, callback: @escaping (_ result: Bool)->Void) {
+        let mData = ["score" : score,
+                     "avg"   : average]
+        self.ref.child("tournaments").child(Global.selectedTournament.id).child("group_stage").child(mail).updateChildValues(mData, withCompletionBlock: {error, ref in
             if error != nil{
                 print("ERROR")
                 callback(false)
@@ -695,6 +714,7 @@ extension GroupStageVC {
                         let tmpName  = tmp["name"] as? String  ?? "no_name_sorry"
                         let tmpGroup = tmp["group"] as? String ?? "no_group_sorry"
                         let tmpScore = tmp["score"] as? Int ?? 0
+                        let tmpAvg   = tmp["avg"]   as? Int ?? 0
                         if !self.groupNames.contains(tmpGroup) {
                             self.groupNames.append(tmpGroup)
                             self.groupNames = self.groupNames.sorted(by: {( item1, item2 ) -> Bool in
@@ -706,6 +726,7 @@ extension GroupStageVC {
                         customPlayer.name  = tmpName
                         customPlayer.group = tmpGroup
                         customPlayer.point = tmpScore
+                        customPlayer.avg   = tmpAvg
                         tmpCustomPlayers.append(customPlayer)
                         self.customPlayers = tmpCustomPlayers.sorted(by: {( item1, item2 ) -> Bool in
                             return item1.group.compare(item2.group) == ComparisonResult.orderedAscending
@@ -887,6 +908,11 @@ extension GroupStageVC {
             }
         }
     }
+    
+    
+    func getAverage(winPoint win: Int, losePoint lose: Int) -> Int {
+        return win - lose
+    }
 
     
     func showWarningIfNeeded(){
@@ -1005,9 +1031,9 @@ extension GroupStageVC: UITableViewDelegate, UITableViewDataSource {
         let cellSimple = mTableView.dequeueReusableCell(withIdentifier: "Cell")       as! DojoPlayerSimpleTableCell
         let cellVersus = mTableView.dequeueReusableCell(withIdentifier: "versusCell") as! VersusTableViewCell
         if mSegmentedControl.selectedSegmentIndex == 0 {
-            cellSimple.nameLabel.text   = self.playersInSection(atIndex: indexPath.section)[indexPath.row].name
-            cellSimple.scoreLabel.text  = "\(self.playersInSection(atIndex: indexPath.section)[indexPath.row].point)"
-            
+            cellSimple.nameLabel.text       = self.playersInSection(atIndex: indexPath.section)[indexPath.row].name
+            cellSimple.scoreLabel.text      = "\(self.playersInSection(atIndex: indexPath.section)[indexPath.row].point)"
+            cellSimple.averageLabel.text    = "\(self.playersInSection(atIndex: indexPath.section)[indexPath.row].avg)"
             return cellSimple
         }
         else if mSegmentedControl.selectedSegmentIndex == 1 {

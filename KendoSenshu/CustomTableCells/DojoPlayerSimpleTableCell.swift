@@ -11,6 +11,7 @@ import UIKit
 class DojoPlayerSimpleTableCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var mImageView: UIImageView!
     
     override func awakeFromNib() {
