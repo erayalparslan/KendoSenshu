@@ -256,7 +256,8 @@ extension NewTournamentVC: UIPickerViewDelegate, UIPickerViewDataSource {
                 "location"  : location,
                 "isFinished": "no",
                 "isGroupStaged" : "no",
-                "isStarted" : "no"
+                "isStarted" : "no",
+                "numberOfFinishedGSM" : 0
             ] as [String : Any]
         
         

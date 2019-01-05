@@ -36,29 +36,30 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var durationTextField: UITextField!
     
-    var groupNames = [String]()
-    var players = [Player]()
-    var groups  = [[Player]]()
-    var headersWithGroups = [(String, [Player])]()
-    var headersWithEmails = [(String, [String])]()
-    var lastContentOffset: CGFloat = 0
     var ref: DatabaseReference!
-    var isGroupStaged = ""
-    var groupStageItems = [(String, [String:String])]()
-    var groupStageModel = [GroupStageModel]()
-    var customPlayers = [CustomPlayer]()
-    var isWinnerSelected = false
-    var curentTextField  = UITextField()
-    var mPickerView     = UIPickerView()
-    var minutes         = 0
-    var seconds         = 0
-    var points          = 0
-    var finalDuration   = String()
-    var areMatchesSaved = Bool()
-    var matchesArray    = [Match]()
-    var selectedMatchIndexPath  = IndexPath()
-    var aScoreInt       = 0
-    var bScoreInt       = 0
+    var groupNames                  = [String]()
+    var players                     = [Player]()
+    var groups                      = [[Player]]()
+    var headersWithGroups           = [(String, [Player])]()
+    var headersWithEmails           = [(String, [String])]()
+    var lastContentOffset: CGFloat  = 0.0
+    var groupStageItems             = [(String, [String:String])]()
+    var groupStageModel             = [GroupStageModel]()
+    var customPlayers               = [CustomPlayer]()
+    var isWinnerSelected            = false
+    var curentTextField             = UITextField()
+    var mPickerView                 = UIPickerView()
+    var minutes                     = 0
+    var seconds                     = 0
+    var points                      = 0
+    var finalDuration               = String()
+    var areMatchesSaved             = Bool()
+    var matchesArray                = [Match]()
+    var selectedMatchIndexPath      = IndexPath()
+    var aScoreInt                   = 0
+    var bScoreInt                   = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,52 +106,47 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
         }
     }
     
-    func updateScoreA(callback: @escaping (Bool)->Void) {
-        let aEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].aEmail
-        getCurrentScoreOfPlayer(playerMail: aEmail) { (preScore, preAverage) in
-            let finalScore = self.aScoreInt + preScore
-            let finalAverage    = self.getAverage(winPoint: self.aScoreInt, losePoint: self.bScoreInt) + preAverage
-            self.updateScore(playerMail: aEmail, finalScore: finalScore, finalAverage: finalAverage, callback: { (result) in
-                if result == true {
-                    print("scoreA is updated successfully")
-                    callback(true)
-                }
-                else {
-                    print("scoreA could not be updated")
-                    callback(false)
-                }
-            })
-        }
+    func getNumberOfAvailableGSM(callback: @escaping (_ numberOfAvailableGSM: Int?)->Void) {
+        var numberOfKids = Int()
+        self.ref.child("tournaments").child(Global.selectedTournament.id).child("group_stage_matches").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            numberOfKids = Int(snapshot.childrenCount)
+            callback(numberOfKids)
+        })
     }
-    
-    func updateScoreB(callback: @escaping (Bool)->Void) {
-        let bEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].bEmail
-        getCurrentScoreOfPlayer(playerMail: bEmail) { (preScore, preAverage) in
-            let finalScore      = self.bScoreInt + preScore
-            let finalAverage    = self.getAverage(winPoint: self.bScoreInt, losePoint: self.aScoreInt) + preAverage
-            self.updateScore(playerMail: bEmail, finalScore: finalScore, finalAverage: finalAverage, callback: { (result) in
-                if result == true {
-                    print("scoreB is updated successfully")
-                    callback(true)
-                }
-                else {
-                    print("scoreB could not be updated")
-                    callback(false)
-                }
-            })
-        }
-    }
-    
-    func updateTotalScoreInDatabase(callback: @escaping (Bool)->Void) {
-        updateScoreA { (success) in
-            if success {
-                self.updateScoreB(callback: { (success) in
-                    if success {
-                        callback(true)
-                    }
-                })
+
+    func getNumberOfFinishedGSM(callback: @escaping (_ success: Bool,_ numberOfFinishedMatches: Int?)->Void) {
+        var numberOfFinishedMatches = Int()
+        self.ref.child("tournaments").child(Global.selectedTournament.id).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if let details = snapshot.value as? NSDictionary {
+                numberOfFinishedMatches = details["numberOfFinishedGSM"] as? Int ?? 0
+                callback(true, numberOfFinishedMatches)
             }
+            else {
+                callback(false, nil)
+            }
+        })
+    }
+    
+    func incrementNumberOfFinishedGSM(callback: @escaping (_ success: Bool, _ numberOfFinishedGSM: Int?)->Void) {
+        getNumberOfFinishedGSM { (success, numberOfFinishedMatches) in
+            if let numberOfFinishedMatches = numberOfFinishedMatches, success == true{
+                let mData = ["numberOfFinishedGSM" : numberOfFinishedMatches + 1]
+                self.ref.child("tournaments").child(Global.selectedTournament.id).updateChildValues(mData) { (error, ref) in
+                    if (error == nil){
+                        
+                        callback(true, numberOfFinishedMatches + 1)
+                    }
+                    else {
+                        
+                        callback(false, nil)
+                    }
+                }
+            }
+            
         }
+        
+
+       
     }
     
     
@@ -166,6 +162,30 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
             saveMatchScoreInDatabase { (success) in
                 if success {
                     print("match score is saved in the db")
+                    
+                    
+                    self.incrementNumberOfFinishedGSM(callback: { (success, numberOfFinishedGSM) in
+                        if let numberOfFinishedGSM = numberOfFinishedGSM, success == true{
+                            print("Number of finished gsm is inceremented. current is \(numberOfFinishedGSM)")
+                            
+                            
+                            self.getNumberOfAvailableGSM(callback: { (numberOfTotalMatch) in
+                                if let numberOfTotalMatch = numberOfTotalMatch {
+                                    if numberOfFinishedGSM == numberOfTotalMatch {
+                                        print("all matches are finished")
+                                    }
+                                    else {
+                                        print("matches are not completed yet")
+                                    }
+                                }
+                            })
+                        }
+                        else {
+                            print("Number of finished gsm could not be incremented")
+                        }
+                    })
+                    
+                    
                 }
                 else {
                     print("match score is not saved in the db")
@@ -195,6 +215,7 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
                     print("group matches could not be fetched from the db")
                 }
             })
+            
         }
     }
     
@@ -275,6 +296,55 @@ extension GroupStageVC {
     }
     
     
+    func updateScoreA(callback: @escaping (Bool)->Void) {
+        let aEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].aEmail
+        getCurrentScoreOfPlayer(playerMail: aEmail) { (preScore, preAverage) in
+            let finalScore = self.aScoreInt + preScore
+            let finalAverage    = self.getAverage(winPoint: self.aScoreInt, losePoint: self.bScoreInt) + preAverage
+            self.updateScore(playerMail: aEmail, finalScore: finalScore, finalAverage: finalAverage, callback: { (result) in
+                if result == true {
+                    print("scoreA is updated successfully")
+                    callback(true)
+                }
+                else {
+                    print("scoreA could not be updated")
+                    callback(false)
+                }
+            })
+        }
+    }
+    
+    func updateScoreB(callback: @escaping (Bool)->Void) {
+        let bEmail = matchesInSection(atIndex: selectedMatchIndexPath.section)[selectedMatchIndexPath.row].bEmail
+        getCurrentScoreOfPlayer(playerMail: bEmail) { (preScore, preAverage) in
+            let finalScore      = self.bScoreInt + preScore
+            let finalAverage    = self.getAverage(winPoint: self.bScoreInt, losePoint: self.aScoreInt) + preAverage
+            self.updateScore(playerMail: bEmail, finalScore: finalScore, finalAverage: finalAverage, callback: { (result) in
+                if result == true {
+                    print("scoreB is updated successfully")
+                    callback(true)
+                }
+                else {
+                    print("scoreB could not be updated")
+                    callback(false)
+                }
+            })
+        }
+    }
+    
+    func updateTotalScoreInDatabase(callback: @escaping (Bool)->Void) {
+        updateScoreA { (success) in
+            if success {
+                self.updateScoreB(callback: { (success) in
+                    if success {
+                        callback(true)
+                    }
+                })
+            }
+        }
+    }
+    
+    
     func updateScore(playerMail mail : String, finalScore score: Int, finalAverage average: Int, callback: @escaping (_ result: Bool)->Void) {
         let mData = ["score" : score,
                      "avg"   : average]
@@ -304,14 +374,14 @@ extension GroupStageVC {
         aScoreTextField.delegate    = self
         bScoreTextField.delegate    = self
         durationTextField.delegate  = self
-        mTableView.delegate   = self
-        mTableView.dataSource = self
-        ref = Database.database().reference()
+        mTableView.delegate         = self
+        mTableView.dataSource       = self
+        ref                         = Database.database().reference()
         aScoreTextField.inputView   = mPickerView
         bScoreTextField.inputView   = mPickerView
         durationTextField.inputView = mPickerView
-        mPickerView.delegate    = self
-        mPickerView.dataSource  = self
+        mPickerView.delegate        = self
+        mPickerView.dataSource      = self
     }
     
     func selectFirstPlayer() {
