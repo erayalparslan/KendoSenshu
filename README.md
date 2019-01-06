@@ -3,6 +3,8 @@ Kendo Enthusiasts' iOS App
 
 # Description
 
+[![Kendo Senshu Video](https://resmim.net/f/V37YZS.png)](https://www.youtube.com/watch?v=010-uqUjGhM)
+
 Kendo is a traditional japanese martial art for hundreds of years. 
 
 With Kendo Senshu tournament system, one can display coming and past tournaments, view dojos and players' profile.
