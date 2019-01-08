@@ -106,48 +106,7 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
         }
     }
     
-    func getNumberOfAvailableGSM(callback: @escaping (_ numberOfAvailableGSM: Int?)->Void) {
-        var numberOfKids = Int()
-        self.ref.child("tournaments").child(Global.selectedTournament.id).child("group_stage_matches").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            numberOfKids = Int(snapshot.childrenCount)
-            callback(numberOfKids)
-        })
-    }
 
-    func getNumberOfFinishedGSM(callback: @escaping (_ success: Bool,_ numberOfFinishedMatches: Int?)->Void) {
-        var numberOfFinishedMatches = Int()
-        self.ref.child("tournaments").child(Global.selectedTournament.id).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            if let details = snapshot.value as? NSDictionary {
-                numberOfFinishedMatches = details["numberOfFinishedGSM"] as? Int ?? 0
-                callback(true, numberOfFinishedMatches)
-            }
-            else {
-                callback(false, nil)
-            }
-        })
-    }
-    
-    func incrementNumberOfFinishedGSM(callback: @escaping (_ success: Bool, _ numberOfFinishedGSM: Int?)->Void) {
-        getNumberOfFinishedGSM { (success, numberOfFinishedMatches) in
-            if let numberOfFinishedMatches = numberOfFinishedMatches, success == true{
-                let mData = ["numberOfFinishedGSM" : numberOfFinishedMatches + 1]
-                self.ref.child("tournaments").child(Global.selectedTournament.id).updateChildValues(mData) { (error, ref) in
-                    if (error == nil){
-                        
-                        callback(true, numberOfFinishedMatches + 1)
-                    }
-                    else {
-                        
-                        callback(false, nil)
-                    }
-                }
-            }
-            
-        }
-        
-
-       
-    }
     
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
@@ -163,16 +122,15 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
                 if success {
                     print("match score is saved in the db")
                     
-                    
                     self.incrementNumberOfFinishedGSM(callback: { (success, numberOfFinishedGSM) in
                         if let numberOfFinishedGSM = numberOfFinishedGSM, success == true{
                             print("Number of finished gsm is inceremented. current is \(numberOfFinishedGSM)")
-                            
                             
                             self.getNumberOfAvailableGSM(callback: { (numberOfTotalMatch) in
                                 if let numberOfTotalMatch = numberOfTotalMatch {
                                     if numberOfFinishedGSM == numberOfTotalMatch {
                                         print("all matches are finished")
+                                        ProgressHUD.showSuccess("All matches are finished")
                                     }
                                     else {
                                         print("matches are not completed yet")
@@ -184,8 +142,6 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
                             print("Number of finished gsm could not be incremented")
                         }
                     })
-                    
-                    
                 }
                 else {
                     print("match score is not saved in the db")
@@ -455,6 +411,44 @@ extension GroupStageVC {
         })
     }
     
+    
+    func getNumberOfAvailableGSM(callback: @escaping (_ numberOfAvailableGSM: Int?)->Void) {
+        var numberOfKids = Int()
+        self.ref.child("tournaments").child(Global.selectedTournament.id).child("group_stage_matches").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            numberOfKids = Int(snapshot.childrenCount)
+            callback(numberOfKids)
+        })
+    }
+    
+    func getNumberOfFinishedGSM(callback: @escaping (_ success: Bool,_ numberOfFinishedMatches: Int?)->Void) {
+        var numberOfFinishedMatches = Int()
+        self.ref.child("tournaments").child(Global.selectedTournament.id).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            if let details = snapshot.value as? NSDictionary {
+                numberOfFinishedMatches = details["numberOfFinishedGSM"] as? Int ?? 0
+                callback(true, numberOfFinishedMatches)
+            }
+            else {
+                callback(false, nil)
+            }
+        })
+    }
+    
+    func incrementNumberOfFinishedGSM(callback: @escaping (_ success: Bool, _ numberOfFinishedGSM: Int?)->Void) {
+        getNumberOfFinishedGSM { (success, numberOfFinishedMatches) in
+            if let numberOfFinishedMatches = numberOfFinishedMatches, success == true{
+                let mData = ["numberOfFinishedGSM" : numberOfFinishedMatches + 1]
+                self.ref.child("tournaments").child(Global.selectedTournament.id).updateChildValues(mData) { (error, ref) in
+                    if (error == nil){
+                        callback(true, numberOfFinishedMatches + 1)
+                    }
+                    else {
+                        callback(false, nil)
+                    }
+                }
+            }
+        }
+    }
+    
     func groupMatchesInfo(callback: @escaping (Bool)->Void) {
         var isStarted = ""
         self.ref.child("tournaments").child("\(Global.selectedTournament.id)").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
@@ -469,6 +463,8 @@ extension GroupStageVC {
             }
         })
     }
+    
+    
     
     
     func loadData() {
