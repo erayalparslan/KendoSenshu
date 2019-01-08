@@ -7,11 +7,35 @@ Kendo Enthusiasts' iOS App
 
 Kendo is a traditional japanese martial art for hundreds of years. 
 
-With Kendo Senshu tournament system, one can display coming and past tournaments, view dojos and players' profile.
+With Kendo Senshu tournament system, we get kendo enthusiasts, kendo players and kendo organization associates all together.
 
-Kendo players register to the system so that they can attend tournaments with their confirmed profile.
+Our aim is to create a collaborative, interactive kendo network and tournament system with fair random fair matche-ups.
 
-CRUD operations are done via the kendo tournament association , which is only available in turkey for this moment.
+
+# Features
+
+### Visitors can;
+
+* Display upcoming and past tournaments with details of each stage of the tournament.
+* Keep track of which players are matched with which players and the result of the matches.
+* Display each player's profile with scores and details of that player. 
+* View kendo dojos from all over the country and access the details of each dojo with registered kendo players in it.
+* Be notified about upcoming events
+* Read updated news and announcements about kendo
+
+
+### Players can;
+
+* Attend tournaments and matches.
+* View and edit personal details of his/her profile.
+
+
+### Admin can;
+
+* Create, edit and delete tournaments.
+* Create, edit and delete dojos.
+* Approve/Disapprove attendees of the each tournament.
+
 
 
 # Disclaimer
