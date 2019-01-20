@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var logoBottomConstraint: NSLayoutConstraint!
     var ref: DatabaseReference!
     
-    var mFlag = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -203,20 +203,7 @@ extension ViewController {
         }
     }
     
-    
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        
-        
-        if mFlag {
-            mFlag = false
-        mImageView.image = UIImage(named: "garu")
-        }
-        else{
-            mFlag = true
-            mImageView.image = UIImage(named: "mainLogo")
-        }
-    }
-    
+
     
     @IBAction func unwindToLogin(_segue: UIStoryboardSegue){}
 }
