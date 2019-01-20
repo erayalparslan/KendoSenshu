@@ -58,7 +58,7 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
     var selectedMatchIndexPath      = IndexPath()
     var aScoreInt                   = 0
     var bScoreInt                   = 0
-    
+    var upperLevelPlayers           = [CustomPlayer]()
     
     
     override func viewDidLoad() {
@@ -131,6 +131,8 @@ class GroupStageVC: UIViewController, UITextFieldDelegate{
                                     if numberOfFinishedGSM == numberOfTotalMatch {
                                         print("all matches are finished")
                                         ProgressHUD.showSuccess("All matches are finished")
+                                        
+                                        self.getUpperPlayers()
                                     }
                                     else {
                                         print("matches are not completed yet")
@@ -988,6 +990,27 @@ extension GroupStageVC {
             Global.setGroupStageWarning(to: true)
         }
     }
+    
+    
+    
+    func getUpperPlayers() {
+        for i in self.groupNames.indices {
+            let tmpPlayersArray    = playersInSection(atIndex: i)
+            var pointSortedPlayers = tmpPlayersArray.sorted(by: { $0.point > $1.point })
+            var avgSortedPlayers   = pointSortedPlayers.sorted(by: { $0.avg > $1.avg })
+            
+            if pointSortedPlayers[1].point > pointSortedPlayers[2].point {
+                self.upperLevelPlayers.append(pointSortedPlayers[0])
+                self.upperLevelPlayers.append(pointSortedPlayers[1])
+            }
+            else if pointSortedPlayers[1].point == pointSortedPlayers[2].point {
+                self.upperLevelPlayers.append(avgSortedPlayers[0])
+                self.upperLevelPlayers.append(avgSortedPlayers[1])
+            }
+        }
+    }
+    
+    
     
     func getGroupName(withGroupCount groupCount: Int) -> String {
         if groupCount == 1 {
